@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.fitnessapp.Fragments.*;
-import com.android.fitnessapp.R;
 
 /**
  * Created by Gerard on 13/01/2018.
@@ -34,8 +33,5 @@ public class WorkoutHomeActivity extends BaseFragmentActivity {
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     }
-
-
-    
 
 }

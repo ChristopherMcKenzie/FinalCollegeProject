@@ -24,10 +24,6 @@ public class WorkoutHomeFragment extends BaseFragment {
         return new WorkoutHomeFragment();
     }
 
-    @BindView(R.id.drawer_layout)
-    DrawerLayout mDrawerLayout;
-    @BindView(R.id.content_frame)
-    FrameLayout mFrameLayout;
 
     @Nullable
     @Override
