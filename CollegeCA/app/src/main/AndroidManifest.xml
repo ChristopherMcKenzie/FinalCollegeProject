@@ -32,6 +32,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".Activity.ExercisesHomeActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.ExerciseActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -1,14 +1,27 @@
 package com.android.fitnessapp.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.android.fitnessapp.Activity.BaseFragmentActivity;
+import com.android.fitnessapp.Activity.ExerciseActivity;
 import com.android.fitnessapp.R;
+import com.android.fitnessapp.Utils.ExerciseHomeList;
+import com.android.fitnessapp.Views.ExerciseViewPageAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,31 +38,42 @@ public class ExercisesHomeFragment extends BaseFragment
         return new ExercisesHomeFragment();
     }
 
-    @BindView(R.id.exercise_listview)
+    /*@BindView(R.id.exercise_listview)
     ListView mlistView;
+*/
+    @BindView(R.id.fragment_exercise_tabLayout)
+    TabLayout mTablayout;
+
+    @BindView(R.id.fragment_exercise_viewPager)
+    ViewPager mViewPager;
+
+    List<ExerciseHomeList> exerciseHomeList;
+
+    private BaseFragmentActivity mActivity;
 
     Unbinder mUnBinder;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_exercise_home, container,false);
+        View rootView = inflater.inflate(R.layout.fragment_exercise, container,false);
 
         mUnBinder = ButterKnife.bind(this, rootView);
 
-        String[] exercises = {"Arms", "Shoulders", "Chest", "Back", "Legs"};
 
-        ArrayAdapter<String> listViewAdapater = new ArrayAdapter<String>(
-                getActivity(),
-                android.R.layout.simple_list_item_1,
-                exercises
-        );
 
-        mlistView.setAdapter(listViewAdapater);
+
+        mActivity = (BaseFragmentActivity) getActivity();
+
+        ExerciseViewPageAdapter exerciseViewPageAdapter = new ExerciseViewPageAdapter(getActivity().getSupportFragmentManager());
+        mViewPager.setAdapter(exerciseViewPageAdapter);
+        mTablayout.setupWithViewPager(mViewPager);
+
+
+  //      mlistView.setOnItemClickListener(this);
 
         return rootView;
     }
-
 
     @Override
     public void onDestroyView() {
