@@ -1,0 +1,30 @@
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var admin = require("firebase-admin");
+
+var exercisesPage = (io) =>
+{
+    io.on('connection', (socket) =>
+  {
+      console.log('Connected to firebase database');
+      getExercisesArms(socket,io);
+  });
+};
+
+
+function getExercisesArms(socket,io)
+{
+  //json object from class in android
+  socket.on('exercises', (data)=>
+{
+return firebase.datbase().ref('/exercises/' + 'arms').once('value').then(function(snapshot){
+      var name = (snapshot.val() && snapshot.val().biceps)
+  });
+});
+}
+
+module.exports =
+{
+  getExercisesArms
+}
