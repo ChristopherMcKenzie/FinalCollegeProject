@@ -62,6 +62,8 @@ public class ArmsFragment extends BaseFragment {
 
             mListView.setAdapter(adapter);
 
+
+
         return rootView;
     }
 

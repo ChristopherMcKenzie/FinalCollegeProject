@@ -5,7 +5,8 @@ package com.android.fitnessapp.Utils;
  */
 
 public class Constants {
-    public static final String IP_HOST = "http://192.168.0.57:3000";
+    //192.168.0.157
+    public static final String IP_HOST = "http://10.102.11.204:3000";
 
 
     public static final String USER_INFO_KEY = "USER_INFO_KEY";
