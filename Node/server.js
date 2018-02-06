@@ -25,7 +25,7 @@ accountRequest.userAccountRequests(io);
 
   //json object from class in android
   return admin.database().ref('/exercises/' + 'arms').once('value').then(function(snapshot){
-    var name = (snapshot.val() && snapshot.val().biceps);
+    var name = (snapshot.val());
     console.log(name);
 });
 /*Database stuff from here on*/

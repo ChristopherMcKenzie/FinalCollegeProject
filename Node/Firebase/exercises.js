@@ -18,7 +18,7 @@ function getExercisesArms(socket,io)
   //json object from class in android
   socket.on('exercises', (data)=>
 {
-return firebase.datbase().ref('/exercises/' + 'arms').once('value').then(function(snapshot){
+return admin.datbase().ref('/exercises/' + 'arms').once('value').then(function(snapshot){
       var name = (snapshot.val() && snapshot.val().biceps)
   });
 });
