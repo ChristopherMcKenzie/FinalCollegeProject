@@ -31,7 +31,14 @@ var con = mysql.createConnection({
   database: "exercises"
 });
 
+<<<<<<< HEAD
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
+=======
+  //json object from class in android
+  return admin.database().ref('/exercises/' + 'arms').once('value').then(function(snapshot){
+    var name = (snapshot.val());
+    console.log(name);
+>>>>>>> b4425719f1dea599e0d64979382e59302493d6a7
 });

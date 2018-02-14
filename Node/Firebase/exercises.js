@@ -18,11 +18,16 @@ function getExercisesArms(socket,io)
   //json object from class in android
   socket.on('exercises', (data)=>
 {
+<<<<<<< HEAD
   return admin.database().ref('/exercises/').once('value')
   .then(function(snapshot)
   {
       var name = (snapshot.val());
       console.log(name);
+=======
+return admin.datbase().ref('/exercises/' + 'arms').once('value').then(function(snapshot){
+      var name = (snapshot.val() && snapshot.val().biceps)
+>>>>>>> b4425719f1dea599e0d64979382e59302493d6a7
   });
 });
 }
