@@ -34,4 +34,11 @@ public class WorkoutHomeActivity extends BaseFragmentActivity {
         startActivity(i);
     }
 
+    public void startWorkoutPost(View v)
+    {
+        Intent i = new Intent(getApplicationContext(), WorkoutPostActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+    }
+
 }

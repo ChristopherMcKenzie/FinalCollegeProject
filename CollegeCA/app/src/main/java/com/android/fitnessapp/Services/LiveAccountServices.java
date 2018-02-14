@@ -258,8 +258,8 @@ public class LiveAccountServices {
                             JSONObject sendData = new JSONObject();
                             try
                             {
-                                sendData.put("userName", userName);
                                 sendData.put("email", userEmail);
+                                sendData.put("userName", userName);
                                 sendData.put("password", userPassword);
                                 socket.emit("userData", sendData);
                                 return SERVER_SUCCESS;

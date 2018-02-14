@@ -18,13 +18,16 @@ function getExercisesArms(socket,io)
   //json object from class in android
   socket.on('exercises', (data)=>
 {
-return firebase.datbase().ref('/exercises/' + 'arms').once('value').then(function(snapshot){
-      var name = (snapshot.val() && snapshot.val().biceps)
+  return admin.database().ref('/exercises/').once('value')
+  .then(function(snapshot)
+  {
+      var name = (snapshot.val());
+      console.log(name);
   });
 });
 }
 
 module.exports =
 {
-  getExercisesArms
+  exercisesPage
 }

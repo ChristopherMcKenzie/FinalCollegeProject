@@ -24,7 +24,6 @@ public class BaseFragment extends Fragment{
         super.onCreate(savedInstanceState);
         compositeSubscription = new CompositeSubscription();
         mSharedPreferences = getActivity().getSharedPreferences(Constants.USER_INFO_KEY, Context.MODE_PRIVATE);
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
 
     }

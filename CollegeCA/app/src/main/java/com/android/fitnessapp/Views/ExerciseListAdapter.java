@@ -15,6 +15,9 @@ import android.widget.TextView;
 
 import com.android.fitnessapp.R;
 import com.android.fitnessapp.Utils.ExerciseHomeList;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -25,6 +28,8 @@ import static android.support.v7.widget.RecyclerView.*;
  */
 
 public class ExerciseListAdapter extends ArrayAdapter<ExerciseHomeList> {
+    private DatabaseReference mDatabaseRef;
+
     private static class ViewHolder
     {
         TextView title;
@@ -33,6 +38,7 @@ public class ExerciseListAdapter extends ArrayAdapter<ExerciseHomeList> {
 
     public ExerciseListAdapter(@NonNull Activity context, @NonNull List<ExerciseHomeList> objects) {
         super(context, R.layout.exercise_list_view, objects);
+
 
     }
 
@@ -47,6 +53,7 @@ public class ExerciseListAdapter extends ArrayAdapter<ExerciseHomeList> {
         if(convertView == null)
         {
             viewHolder = new ViewHolder();
+
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.exercise_list_view, parent, false);
             viewHolder.desc = (TextView) convertView.findViewById(R.id.list_view_exercise_text);
@@ -60,6 +67,7 @@ public class ExerciseListAdapter extends ArrayAdapter<ExerciseHomeList> {
             //Get the cache
             viewHolder = (ViewHolder) convertView.getTag();
         }
+
 
         viewHolder.desc.setText(exerciseHomeList.getText());
         viewHolder.title.setText(exerciseHomeList.getMuscle());

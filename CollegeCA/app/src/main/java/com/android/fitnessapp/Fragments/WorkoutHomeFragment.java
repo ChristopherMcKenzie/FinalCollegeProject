@@ -1,6 +1,7 @@
 package com.android.fitnessapp.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
@@ -11,9 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.android.fitnessapp.Activity.WorkoutPostActivity;
 import com.android.fitnessapp.R;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by Gerard on 13/01/2018.
@@ -31,6 +34,12 @@ public class WorkoutHomeFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_workout_home, container, false);
 
         return rootView;
+    }
+
+    @OnClick(R.id.add_workout_button)
+    public void setWorkoutButton()
+    {
+        startActivity(new Intent(getActivity(), WorkoutPostActivity.class));
     }
 
 

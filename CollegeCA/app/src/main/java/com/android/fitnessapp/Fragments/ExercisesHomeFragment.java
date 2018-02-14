@@ -61,8 +61,6 @@ public class ExercisesHomeFragment extends BaseFragment
         mUnBinder = ButterKnife.bind(this, rootView);
 
 
-
-
         mActivity = (BaseFragmentActivity) getActivity();
 
         ExerciseViewPageAdapter exerciseViewPageAdapter = new ExerciseViewPageAdapter(getActivity().getSupportFragmentManager());

@@ -5,12 +5,15 @@ package com.android.fitnessapp.Utils;
  */
 
 public class ExerciseHomeList {
-    protected String muscle;
-    protected String text;
+    public String muscle;
+    public String text;
 
     public ExerciseHomeList(String muscle, String text) {
         this.muscle = muscle;
         this.text = text;
+    }
+
+    public ExerciseHomeList() {
     }
 
     public String getMuscle() {
