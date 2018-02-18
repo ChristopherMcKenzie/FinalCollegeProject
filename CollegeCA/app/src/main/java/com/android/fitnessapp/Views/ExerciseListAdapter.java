@@ -1,12 +1,8 @@
 package com.android.fitnessapp.Views;
 
 import android.app.Activity;
-import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,20 +10,16 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.android.fitnessapp.R;
-import com.android.fitnessapp.Utils.ExerciseHomeList;
-import com.google.firebase.database.DataSnapshot;
+import com.android.fitnessapp.Utils.ExerciseList;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
-
-import static android.support.v7.widget.RecyclerView.*;
 
 /**
  * Created by Gerard on 01/02/2018.
  */
 
-public class ExerciseListAdapter extends ArrayAdapter<ExerciseHomeList> {
+public class ExerciseListAdapter extends ArrayAdapter<ExerciseList> {
     private DatabaseReference mDatabaseRef;
 
     private static class ViewHolder
@@ -36,7 +28,7 @@ public class ExerciseListAdapter extends ArrayAdapter<ExerciseHomeList> {
         TextView desc;
     }
 
-    public ExerciseListAdapter(@NonNull Activity context, @NonNull List<ExerciseHomeList> objects) {
+    public ExerciseListAdapter(@NonNull Activity context, @NonNull List<ExerciseList> objects) {
         super(context, R.layout.exercise_list_view, objects);
 
 
@@ -46,7 +38,7 @@ public class ExerciseListAdapter extends ArrayAdapter<ExerciseHomeList> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        ExerciseHomeList exerciseHomeList = getItem(position);
+        ExerciseList exerciseList = getItem(position);
 
         ViewHolder viewHolder;
         //Check if the view is being reused or not
@@ -60,6 +52,7 @@ public class ExerciseListAdapter extends ArrayAdapter<ExerciseHomeList> {
             viewHolder.title = (TextView) convertView.findViewById(R.id.list_view_muscle);
             //Cache it here
             convertView.setTag(viewHolder);
+//        String userEmail = sharedPreferences.getString(Constants.USER_EMAIL, "");
 
         }
         else
@@ -69,8 +62,8 @@ public class ExerciseListAdapter extends ArrayAdapter<ExerciseHomeList> {
         }
 
 
-        viewHolder.desc.setText(exerciseHomeList.getText());
-        viewHolder.title.setText(exerciseHomeList.getMuscle());
+        viewHolder.desc.setText(exerciseList.getText());
+        viewHolder.title.setText(exerciseList.getMuscle());
 
         return convertView;
     }

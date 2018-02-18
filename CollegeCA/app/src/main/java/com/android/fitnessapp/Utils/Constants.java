@@ -5,20 +5,21 @@ package com.android.fitnessapp.Utils;
  */
 
 public class Constants {
-    //192.168.0.157
+    //192.168.0.57
     public static final String IP_HOST = "http://192.168.0.57:62001";
 
 
     public static final String USER_INFO_KEY = "USER_INFO_KEY";
     public static final String USER_EMAIL = "USER_EMAIL";
     public static final String USER_NAME = "USER_NAME";
-    public static final String MONDAY_EX_ONE = "";
-    public static final String MONDAY_EX_TWO = "";
-    public static final String MONDAY_EX_THREE = "";
-    public static final String MONDAY_EX_FOUR = "";
-    public static final String MONDAY_EX_FIVE = "";
-    public static final String MONDAY_EX_SIX = "";
-    public static final String MONDAY_EX_SEVEN = "";
+    public static final String MON_WORKOUT = "MON_WORKOUT";
+    public static final String TUE_WORKOUT = "TUE_WORKOUT";
+    public static final String WED_WORKOUT = "WED_WORKOUT";
+    public static final String THUR_WORKOUT = "THUR_WORKOUT";
+    public static final String FRI_WORKOUT = "FRI_WORKOUT";
+    public static final String SAT_WORKOUT = "SAT_WORKOUT";
+    public static final String SUN_WORKOUT = "SUN_WORKOUT";
+
 
 
 

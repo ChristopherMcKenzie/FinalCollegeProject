@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.fitnessapp.Fragments.HomeFragment;
+import com.android.fitnessapp.Utils.Constants;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -27,6 +28,7 @@ public class HomeActivity extends BaseFragmentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(this, Constants.USER_EMAIL, Toast.LENGTH_SHORT).show();
 
     }
 

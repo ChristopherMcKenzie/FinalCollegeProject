@@ -4,16 +4,16 @@ package com.android.fitnessapp.Utils;
  * Created by Gerard on 30/01/2018.
  */
 
-public class ExerciseHomeList {
+public class ExerciseList {
     public String muscle;
     public String text;
 
-    public ExerciseHomeList(String muscle, String text) {
+    public ExerciseList(String muscle, String text) {
         this.muscle = muscle;
         this.text = text;
     }
 
-    public ExerciseHomeList() {
+    public ExerciseList() {
     }
 
     public String getMuscle() {
