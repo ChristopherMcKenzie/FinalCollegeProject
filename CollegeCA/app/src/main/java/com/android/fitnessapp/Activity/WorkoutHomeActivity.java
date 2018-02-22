@@ -1,16 +1,12 @@
-package com.android.fitnessapp.Activity;
+package com.android.fitnessapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.android.fitnessapp.Fragments.*;
+import com.android.fitnessapp.fragments.*;
 
 /**
  * Created by Gerard on 13/01/2018.

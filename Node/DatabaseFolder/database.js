@@ -16,13 +16,28 @@ var sqlCon = mysql.createConnection({
 
 var getExercises = (io) =>
 {
+  sqlCon.connect();
+
   io.on('connection', (socket)=>
   {
-    sqlCon.connect();
     console.log("Connected to database");
     addUserWorkout(io,socket);
+    testInsert();
   });
 };
+
+
+function testInsert()
+{
+  var query = "INSERT INTO `exercises`.`user_workout` (`user_email`, `monday`, `thusday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`) VALUES (?);";
+  var testarray = ['EMAIL', 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'];
+
+  sqlCon.query(query,[testarray], function(err, result){
+    if(err) throw err;
+    console.log(result.affectedRows);
+  });
+
+}
 
 function addUserWorkout(io, socket)
 {
@@ -34,9 +49,14 @@ function addUserWorkout(io, socket)
       var ref = db.ref('users');
       var userRef = ref.child(encodeEmail(data.email));
       sqlCon.beginTransaction(function(err){
-        var query = 'INSERT INTO user_workout (user_name, monday, tueday, wednesday, thursday, friday, saturday, sunday)'
-        + ' VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+        var query = "INSERT INTO `exercises`.`user_workout` (`user_email`, `monday`, `thusday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`)"
+        + " VALUES (?)";
 
+        var workoutinfo = [userRef, data.mon, data.tues, data.wed, data.thurs, data.fri, data.sat, data.sun];
+
+        sqlCon.query(query,[workoutinfo], function(err, result){
+
+        });
       });
     });
   });

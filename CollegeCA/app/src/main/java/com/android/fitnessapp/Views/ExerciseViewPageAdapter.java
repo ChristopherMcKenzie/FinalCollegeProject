@@ -1,14 +1,14 @@
-package com.android.fitnessapp.Views;
+package com.android.fitnessapp.views;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.android.fitnessapp.Fragments.ArmsFragment;
-import com.android.fitnessapp.Fragments.BackFragment;
-import com.android.fitnessapp.Fragments.ChestFragment;
-import com.android.fitnessapp.Fragments.LegsFragment;
-import com.android.fitnessapp.Fragments.ShouldersFragment;
+import com.android.fitnessapp.fragments.ArmsFragment;
+import com.android.fitnessapp.fragments.BackFragment;
+import com.android.fitnessapp.fragments.ChestFragment;
+import com.android.fitnessapp.fragments.LegsFragment;
+import com.android.fitnessapp.fragments.ShouldersFragment;
 
 /**
  * Created by Gerard on 31/01/2018.

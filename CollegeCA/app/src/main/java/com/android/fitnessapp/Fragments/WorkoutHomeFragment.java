@@ -1,21 +1,16 @@
-package com.android.fitnessapp.Fragments;
+package com.android.fitnessapp.fragments;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
-import com.android.fitnessapp.Activity.WorkoutPostActivity;
+import com.android.fitnessapp.activity.WorkoutPostActivity;
 import com.android.fitnessapp.R;
 
-import butterknife.BindView;
 import butterknife.OnClick;
 
 /**

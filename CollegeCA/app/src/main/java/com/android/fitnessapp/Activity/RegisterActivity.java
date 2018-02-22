@@ -1,8 +1,8 @@
-package com.android.fitnessapp.Activity;
+package com.android.fitnessapp.activity;
 
 import android.support.v4.app.Fragment;
 
-import com.android.fitnessapp.Fragments.RegisterFragment;
+import com.android.fitnessapp.fragments.RegisterFragment;
 
 /**
  * Created by Gerard on 11/01/2018.

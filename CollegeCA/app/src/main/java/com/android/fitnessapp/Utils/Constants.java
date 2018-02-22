@@ -1,4 +1,4 @@
-package com.android.fitnessapp.Utils;
+package com.android.fitnessapp.utils;
 
 /**
  * Created by Gerard on 11/01/2018.
@@ -6,7 +6,7 @@ package com.android.fitnessapp.Utils;
 
 public class Constants {
     //192.168.0.57
-    public static final String IP_HOST = "http://192.168.0.57:62001";
+    public static final String IP_HOST = "http://10.102.11.62:62001";
 
 
     public static final String USER_INFO_KEY = "USER_INFO_KEY";

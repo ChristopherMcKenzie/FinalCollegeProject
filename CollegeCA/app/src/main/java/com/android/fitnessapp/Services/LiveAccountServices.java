@@ -1,4 +1,4 @@
-package com.android.fitnessapp.Services;
+package com.android.fitnessapp.services;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,9 +7,9 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.fitnessapp.Activity.BaseFragmentActivity;
-import com.android.fitnessapp.Activity.HomeActivity;
-import com.android.fitnessapp.Utils.Constants;
+import com.android.fitnessapp.activity.BaseFragmentActivity;
+import com.android.fitnessapp.activity.HomeActivity;
+import com.android.fitnessapp.utils.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -20,7 +20,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 import io.socket.client.Socket;
 import rx.Observer;

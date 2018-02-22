@@ -1,4 +1,4 @@
-package com.android.fitnessapp.Fragments;
+package com.android.fitnessapp.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.fitnessapp.Activity.BaseFragmentActivity;
-import com.android.fitnessapp.Activity.LoginActivity;
+import com.android.fitnessapp.activity.BaseFragmentActivity;
+import com.android.fitnessapp.activity.LoginActivity;
 import com.android.fitnessapp.R;
-import com.android.fitnessapp.Services.LiveAccountServices;
-import com.android.fitnessapp.Utils.Constants;
+import com.android.fitnessapp.services.LiveAccountServices;
+import com.android.fitnessapp.utils.Constants;
 
 import org.json.JSONObject;
 

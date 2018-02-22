@@ -1,14 +1,11 @@
-package com.android.fitnessapp.Services;
+package com.android.fitnessapp.services;
 
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.fitnessapp.Activity.BaseFragmentActivity;
-import com.android.fitnessapp.Fragments.BaseFragment;
-import com.android.fitnessapp.Utils.ExerciseList;
-import com.android.fitnessapp.Views.ExerciseListAdapter;
+import com.android.fitnessapp.activity.BaseFragmentActivity;
+import com.android.fitnessapp.utils.ExerciseList;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,7 +16,6 @@ import java.util.List;
 import io.socket.client.Socket;
 import rx.Observable;
 import rx.Observer;
-import rx.Scheduler;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
@@ -43,7 +39,7 @@ public class ExerciseServices {
         }
         return mExerciseServices;
     }
-/*
+
     public Subscription addUserExcercises(final EditText exercise, JSONObject data, final BaseFragmentActivity baseFragmentActivity,
                                           final SharedPreferences sharedPreferences)
     {
@@ -53,15 +49,16 @@ public class ExerciseServices {
 
         rx.Observable<List<String>> userExerciseObservable = rx.Observable.just(userExerciseDetails);
 
-        return userExerciseObservable.subscribeOn(Schedulers.io())
+        return (Subscription) userExerciseObservable.subscribeOn(Schedulers.io())
                 .map(new Func1<List<String>, Integer>() {
                     @Override
                     public Integer call(List<String> strings) {
-                        sharedPreferences.
+
+                    return 1;
                     }
-                })
+                });
     }
-*/
+
     public Subscription getArmExercises(JSONObject data, final BaseFragmentActivity baseFragmentActivity )
     {
         rx.Observable<JSONObject> jsonObservable = rx.Observable.just(data);

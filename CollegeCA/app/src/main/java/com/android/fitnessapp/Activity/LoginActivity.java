@@ -1,8 +1,8 @@
-package com.android.fitnessapp.Activity;
+package com.android.fitnessapp.activity;
 
 import android.support.v4.app.Fragment;
 
-import com.android.fitnessapp.Fragments.LoginFragment;
+import com.android.fitnessapp.fragments.LoginFragment;
 
 
 public class LoginActivity extends BaseFragmentActivity{

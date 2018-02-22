@@ -1,4 +1,4 @@
-package com.android.fitnessapp.Fragments;
+package com.android.fitnessapp.fragments;
 
 
 import android.content.Context;
@@ -7,9 +7,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
-import com.android.fitnessapp.Activity.BaseFragmentActivity;
-import com.android.fitnessapp.Utils.Constants;
-import com.google.firebase.database.FirebaseDatabase;
+import com.activeandroid.ActiveAndroid;
+import com.android.fitnessapp.utils.Constants;
 
 import rx.subscriptions.CompositeSubscription;
 
@@ -22,6 +21,7 @@ public class BaseFragment extends Fragment{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActiveAndroid.initialize(getActivity());
         compositeSubscription = new CompositeSubscription();
         mSharedPreferences = getActivity().getSharedPreferences(Constants.USER_INFO_KEY, Context.MODE_PRIVATE);
 

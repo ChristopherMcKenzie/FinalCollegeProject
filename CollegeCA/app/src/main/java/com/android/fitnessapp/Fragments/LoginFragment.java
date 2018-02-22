@@ -1,4 +1,4 @@
-package com.android.fitnessapp.Fragments;
+package com.android.fitnessapp.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.fitnessapp.Activity.BaseFragmentActivity;
-import com.android.fitnessapp.Activity.RegisterActivity;
+import com.android.fitnessapp.activity.BaseFragmentActivity;
+import com.android.fitnessapp.activity.RegisterActivity;
 import com.android.fitnessapp.R;
-import com.android.fitnessapp.Services.LiveAccountServices;
-import com.android.fitnessapp.Utils.Constants;
+import com.android.fitnessapp.services.LiveAccountServices;
+import com.android.fitnessapp.utils.Constants;
 
 import org.json.JSONObject;
 
@@ -29,7 +29,6 @@ import butterknife.Unbinder;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
-import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by Gerard on 11/01/2018.

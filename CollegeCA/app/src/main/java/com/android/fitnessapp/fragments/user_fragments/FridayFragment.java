@@ -1,4 +1,4 @@
-package com.android.fitnessapp.fragments;
+package com.android.fitnessapp.fragments.user_fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,44 +10,36 @@ import android.widget.ListView;
 
 import com.android.fitnessapp.R;
 import com.android.fitnessapp.activity.BaseFragmentActivity;
-import com.android.fitnessapp.database.UserExerciseDatabase;
-import com.android.fitnessapp.views.ExerciseListAdapter;
-
-import java.util.ArrayList;
+import com.android.fitnessapp.fragments.BaseFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Created by Gerard on 31/01/2018.
+ * Created by Gerard on 21/02/2018.
  */
 
-public class BackFragment extends BaseFragment {
+public class FridayFragment extends BaseFragment {
+    public static FridayFragment newInstance(){return new FridayFragment();}
 
-    public static BackFragment newInstance(){return new BackFragment();}
-
-    @BindView(R.id.list_view_back)
+    @BindView(R.id.user_exercise_listview)
     ListView mListView;
 
     private Unbinder mUnbinder;
+
     private BaseFragmentActivity mActivity;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_back, container, false);
-        mUnbinder = ButterKnife.bind(this, view);
+        View rootView = inflater.inflate(R.layout.fragment_friday_user, container, false);
+        mUnbinder = ButterKnife.bind(getActivity(), rootView);
 
 
 
-        ArrayList<UserExerciseDatabase> items = new ArrayList<>();
 
-        ExerciseListAdapter adapter = new ExerciseListAdapter(mActivity, items);
-
-        mListView.setAdapter(adapter);
-
-        return view;
+        return rootView;
     }
 
     @Override

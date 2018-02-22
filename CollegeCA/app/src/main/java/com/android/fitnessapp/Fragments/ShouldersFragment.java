@@ -1,4 +1,4 @@
-package com.android.fitnessapp.Fragments;
+package com.android.fitnessapp.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

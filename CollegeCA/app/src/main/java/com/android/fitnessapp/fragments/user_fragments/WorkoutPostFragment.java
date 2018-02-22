@@ -1,19 +1,20 @@
-package com.android.fitnessapp.Fragments;
+package com.android.fitnessapp.fragments.user_fragments;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
-import com.android.fitnessapp.Activity.BaseFragmentActivity;
+import com.android.fitnessapp.activity.BaseFragmentActivity;
 import com.android.fitnessapp.R;
-import com.android.fitnessapp.Utils.Constants;
+import com.android.fitnessapp.fragments.BaseFragment;
+import com.android.fitnessapp.views.userviews.UserExerciseViewPageAdapter;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,26 +24,32 @@ import butterknife.Unbinder;
  * Created by Gerard on 09/02/2018.
  */
 
-public class WorkoutPostFragment extends BaseFragment{
+public class WorkoutPostFragment extends BaseFragment {
 
     public static WorkoutPostFragment newInstance(){return new WorkoutPostFragment();}
 
-    @BindView(R.id.first_monday)
-    EditText mEditTextMonday;
-    @BindView(R.id.test)
-    TextView testTextView;
-    @BindView(R.id.add_monday_button)
-    Button workoutMondayButton;
+    @BindView(R.id.fragment_user_exercise_tabLayout)
+    TabLayout mTabLayout;
+
+    @BindView(R.id.fragment_user_exercise_viewPager)
+    ViewPager mViewPager;
 
     private BaseFragmentActivity mActivity;
     private Unbinder mUnbinder;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_workout_post, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_user_exercise, container, false);
         mUnbinder = ButterKnife.bind(this, rootView);
 
+        mActivity = (BaseFragmentActivity) getActivity();
+
+        UserExerciseViewPageAdapter userExerciseViewPageAdapter =
+                new UserExerciseViewPageAdapter(getActivity().getSupportFragmentManager());
+        mViewPager.setAdapter(userExerciseViewPageAdapter);
+        mTabLayout.setupWithViewPager(mViewPager);
 
         return rootView;
     }
@@ -53,9 +60,9 @@ public class WorkoutPostFragment extends BaseFragment{
  */
     public void editWorkoutMonday(View v)
     {
-        String mondayWorkout = mEditTextMonday.toString();
-        testTextView.setText(mondayWorkout);
-
+    //    String mondayWorkout = mEditTextMonday.toString();
+  //      testTextView.setText(mondayWorkout);
+//
     }
 
 

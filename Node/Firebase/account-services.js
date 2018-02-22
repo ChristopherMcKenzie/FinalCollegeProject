@@ -7,6 +7,7 @@ var userAccountRequests = (io) =>
 {
   io.on('connection', (socket)=>
   {
+    console.log(`User conneced on ${socket.id}`);
     detectDisconnection(socket, io);
     logUserIn(socket,io);
     registerUser(socket, io);

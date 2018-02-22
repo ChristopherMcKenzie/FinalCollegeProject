@@ -1,4 +1,4 @@
-package com.android.fitnessapp.Utils;
+package com.android.fitnessapp.utils;
 
 /**
  */

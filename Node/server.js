@@ -22,13 +22,9 @@ accountRequest.userAccountRequests(io);
 //port number
 //=> arrow function and constructor
 http.listen(62001, ()=>{
-  console.log('Server is listening on port 3000');
+  console.log('Server is listening on port 62001');
 });
-/*
-var con = mysql.createConnection({
-  host: "finalprojectdb.cljh7lrro0df.us-east-1.rds.amazonaws.com",
-  user: "ChrisAdmin",
-  password: "Chrismac12",
-  database: "exercises"
-});
-*/
+//dsd
+
+//to make it a proper list add "mon" to the monday and so on
+//then use a regex to take out the "mon" and add a "/n"

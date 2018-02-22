@@ -1,4 +1,4 @@
-package com.android.fitnessapp.Fragments;
+package com.android.fitnessapp.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.fitnessapp.Activity.BaseFragmentActivity;
+import com.android.fitnessapp.activity.BaseFragmentActivity;
 import com.android.fitnessapp.R;
-import com.android.fitnessapp.Utils.ExerciseList;
-import com.android.fitnessapp.Views.ExerciseViewPageAdapter;
+import com.android.fitnessapp.utils.ExerciseList;
+import com.android.fitnessapp.views.ExerciseViewPageAdapter;
 
 import java.util.List;
 
@@ -55,7 +55,8 @@ public class ExercisesHomeFragment extends BaseFragment
 
         mActivity = (BaseFragmentActivity) getActivity();
 
-        ExerciseViewPageAdapter exerciseViewPageAdapter = new ExerciseViewPageAdapter(getActivity().getSupportFragmentManager());
+        ExerciseViewPageAdapter exerciseViewPageAdapter =
+                new ExerciseViewPageAdapter(getActivity().getSupportFragmentManager());
         mViewPager.setAdapter(exerciseViewPageAdapter);
         mTablayout.setupWithViewPager(mViewPager);
 

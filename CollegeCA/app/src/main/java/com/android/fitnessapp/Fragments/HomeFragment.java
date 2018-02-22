@@ -1,22 +1,16 @@
-package com.android.fitnessapp.Fragments;
+package com.android.fitnessapp.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.android.fitnessapp.Activity.HomeActivity;
-import com.android.fitnessapp.Activity.WorkoutHomeActivity;
 import com.android.fitnessapp.R;
-import com.android.fitnessapp.Utils.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**

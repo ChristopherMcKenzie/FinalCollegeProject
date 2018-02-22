@@ -1,4 +1,4 @@
-package com.android.fitnessapp.Activity;
+package com.android.fitnessapp.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.android.fitnessapp.R;
-import com.android.fitnessapp.Utils.Constants;
+import com.android.fitnessapp.utils.Constants;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
