@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Select;
@@ -16,6 +18,7 @@ import com.android.fitnessapp.R;
 import com.android.fitnessapp.activity.BaseFragmentActivity;
 import com.android.fitnessapp.database.UserExerciseDatabase;
 import com.android.fitnessapp.fragments.BaseFragment;
+import com.android.fitnessapp.utils.ExerciseList;
 import com.android.fitnessapp.views.ExerciseListAdapter;
 import com.android.fitnessapp.views.userviews.UserExerciseListAdapter;
 
@@ -36,58 +39,79 @@ public class MondayFragment extends BaseFragment {
 
     @BindView(R.id.user_exercise_listview_mon)
     ListView mListView;
-    @BindView(R.id.user_exercise_add_button_mon)
-    Button mWorkoutButton;
+    @BindView(R.id.user_exercise_edittext_mon)
+    EditText userExercise;
+
 
     private Unbinder mUnbinder;
+    public UserExerciseDatabase userExerciseDatabase;
     private BaseFragmentActivity mActivity;
-
-    public List<UserExerciseDatabase> userExercises;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActiveAndroid.initialize(mActivity);
+
+
     }
-    public UserExerciseDatabase mUserExerciseDatabase;
+
+    private ExerciseListAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_monday_user, container, false);
-        mUnbinder = ButterKnife.bind(getActivity(), rootView);
+        mUnbinder = ButterKnife.bind(this, rootView);
+        ActiveAndroid.initialize(mActivity);
 
-        //Create an arrayList to populate the database
-        //and the adapter
-        userExercises = new ArrayList<>();
+        userExerciseDatabase = new UserExerciseDatabase();
 
-        ExerciseListAdapter adapter = new ExerciseListAdapter(mActivity, userExercises);
+        //Create an arrayList of items for the database
+        ArrayList<UserExerciseDatabase> items = new ArrayList<>();
+        adapter = new ExerciseListAdapter(mActivity, items);
 
-        //android.database.sqlite.SQLiteException: no such table
-        //Any time a table is added or dropped must update the version in the manifest
+        //Create a string called day holding the name of the day
+        //Create a query for the database to handle then print it out on screen
 
-
-        List<UserExerciseDatabase> queryResults = new Select()
+        String day = "Monday";
+        List<UserExerciseDatabase> results = new Select()
                 .from(UserExerciseDatabase.class)
-                .where("day = ?", "monday")
+                .where("day = ?", day )
                 .execute();
+        adapter.addAll(results);
+
+        adapter.notifyDataSetChanged();
 
         mListView.setAdapter(adapter);
+
+
 
         return rootView;
     }
 
     @OnClick(R.id.user_exercise_add_button_mon)
-    public void addWorkout( final EditText userInput)
-    {
-        //String userEmail = mSharedPreferences.getString("USER_EMAIL", "");
-        mUserExerciseDatabase.day = "Monday";
-        mUserExerciseDatabase.exerciseName = userInput.getText().toString();
-        mUserExerciseDatabase.save();
-
+    public void addWorkoutMonday() {
+        Toast.makeText(mActivity, "Exercise Added", Toast.LENGTH_SHORT).show();
+        saveExercise(userExercise);
 
     }
 
+    public void saveExercise(EditText userInput)
+    {
+        String exercise = userInput.getText().toString();
+        userExerciseDatabase.exerciseName = exercise;
+        userExerciseDatabase.day = "Monday";
+        userExerciseDatabase.save();
+        try
+        {
+            Thread.sleep(1000);
+            adapter.notifyDataSetChanged();
+        }
+        catch(InterruptedException ex)
+        {
+            ex.getMessage();
+        }
+
+    }
 
     @Override
     public void onDestroyView() {

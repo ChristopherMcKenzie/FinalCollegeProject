@@ -61,16 +61,6 @@ public class ArmsFragment extends BaseFragment {
 
         exerciseList = new ArrayList<>();
 
-        /*exerciseList.add(new ExerciseList("Biceps \nBicep curl", "Take a bar bell or two dumbbells." +
-                "\nHold your arms down straight and bend your elbow" +
-                ",\nbringing the weight upwards, bring the weight up as much as you can making sure your" +
-                "\nbiceps are contracted, then control the weight back down to the starting position."));
-        exerciseList.add(new ExerciseList("Triceps \nSkullcrusher", "Ez bar bell" ));
-        exerciseList.add(new ExerciseList("Forearms/Biceps \nZottomon Curl", "Chest"));
-        exerciseList.add(new ExerciseList("Triceps\n Rope pulldown", "Back"));
-        exerciseList.add(new ExerciseList("Biceps\n Hammer Curl", ""));
-*/
-
         UserExerciseDatabase userExerciseDatabase = new UserExerciseDatabase();
 
 

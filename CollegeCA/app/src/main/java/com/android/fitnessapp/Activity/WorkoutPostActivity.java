@@ -14,4 +14,6 @@ public class WorkoutPostActivity extends BaseFragmentActivity{
         return WorkoutPostFragment.newInstance();
     }
 
+
+
 }

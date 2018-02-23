@@ -33,7 +33,7 @@ public class FridayFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_friday_user, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_monday_user, container, false);
         mUnbinder = ButterKnife.bind(getActivity(), rootView);
 
 

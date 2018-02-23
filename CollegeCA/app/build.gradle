@@ -22,6 +22,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets{
+        main{
+            res.srcDirs =
+                    [
+                            'src/main/res/layout/layout_user',
+                            'src/main/res/layout',
+                            'src/main/res/'
+                    ]
+        }
+    }
 }
 repositories {
     mavenCentral()
@@ -57,6 +67,7 @@ dependencies {
     compile 'com.roughike:bottom-bar:2.3.1'
     compile 'com.makeramen:roundedimageview:2.3.0'
     compile group: 'com.netflix.rxjava', name: 'rxjava-android', version: '0.20.7'
+    compile 'org.jetbrains:annotations-java5:15.0'
 }
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.google.gms.google-services'
