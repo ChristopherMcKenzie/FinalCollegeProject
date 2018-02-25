@@ -20,7 +20,7 @@
             android:value="Exercises"/>
         <meta-data
             android:name="AA_DB_VERSION"
-            android:value="3"/>
+            android:value="7"/>
         <activity
             android:name="com.android.fitnessapp.activity.HomeActivity"
             android:label="@string/app_name">

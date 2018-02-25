@@ -9,17 +9,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+
+    <Button
+        android:id="@+id/add_workout_dialog_button"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="Add exercise here"
+        android:layout_height="100dp" />
     <!--<LinearLayout
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="40dp">
-
         <EditText
             android:id="@+id/user_exercise_edittext_mon"
             android:layout_width="400dp"
             android:layout_height="50dp"
             android:hint="@string/add_exercise_hint"/>
-
         <Button
             android:id="@+id/user_exercise_add_button_mon"
             android:layout_width="0dp"
@@ -27,6 +34,5 @@
             android:layout_gravity="center"
             android:background="@drawable/common_google_signin_btn_icon_dark"
             android:layout_weight=".15"/>
-
     </LinearLayout>-->
 </RelativeLayout>

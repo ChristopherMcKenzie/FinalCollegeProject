@@ -1,8 +1,12 @@
 package com.android.fitnessapp.fragments.user_fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +25,7 @@ import com.android.fitnessapp.fragments.BaseFragment;
 import com.android.fitnessapp.utils.ExerciseList;
 import com.android.fitnessapp.views.ExerciseListAdapter;
 import com.android.fitnessapp.views.userviews.UserExerciseListAdapter;
+import com.android.fitnessapp.views.userviews.UserExerciseRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +44,7 @@ public class MondayFragment extends BaseFragment {
 
     @BindView(R.id.user_exercise_listview_mon)
     ListView mListView;
-    @BindView(R.id.user_exercise_edittext_mon)
-    EditText userExercise;
+
 
 
     private Unbinder mUnbinder;
@@ -59,7 +63,7 @@ public class MondayFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_monday_user, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_user_monday, container, false);
         mUnbinder = ButterKnife.bind(this, rootView);
         ActiveAndroid.initialize(mActivity);
 
@@ -85,21 +89,54 @@ public class MondayFragment extends BaseFragment {
 
 
 
+
         return rootView;
     }
 
-    @OnClick(R.id.user_exercise_add_button_mon)
-    public void addWorkoutMonday() {
-        Toast.makeText(mActivity, "Exercise Added", Toast.LENGTH_SHORT).show();
-        saveExercise(userExercise);
 
+    //Shows a pop up for the user to add an exercise
+    @OnClick(R.id.add_workout_dialog_button)
+    public void showExerciseAddDialog()
+    {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mActivity);
+        LayoutInflater inflater = mActivity.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.custom_exercise_dialog, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setTitle("Add exercise to your workout");
+
+        final EditText exerciseNameEditText = (EditText) dialogView.findViewById(R.id.exercisename_edit_text_mon);
+        final EditText exerciseRepEditText = (EditText) dialogView.findViewById(R.id.exercisereps_edit_text_mon);
+        final EditText exerciseSetsEditText = (EditText) dialogView.findViewById(R.id.exercisesets_edit_text_mon);
+
+        dialogBuilder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                userExerciseDatabase.day = "Monday";
+                userExerciseDatabase.exerciseName = exerciseNameEditText.getText().toString();
+               // userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
+                userExerciseDatabase.save();
+
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = dialogBuilder.create();
+        dialog.show();
     }
+
+
 
     public void saveExercise(EditText userInput)
     {
         String exercise = userInput.getText().toString();
         userExerciseDatabase.exerciseName = exercise;
         userExerciseDatabase.day = "Monday";
+
         userExerciseDatabase.save();
         try
         {

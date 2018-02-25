@@ -43,7 +43,7 @@ public class UserExerciseListAdapter extends ArrayAdapter<UserExerciseDatabase> 
 
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.exercise_list_view, parent, false);
-            viewHolder.name = convertView.findViewById(R.id.user_exercise_textview);
+            //viewHolder.name = convertView.findViewById(R.id.user_exercise_textview);
 
             convertView.setTag(viewHolder);
         }

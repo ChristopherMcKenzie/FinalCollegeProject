@@ -17,21 +17,18 @@ public class UserExerciseDatabase extends Model {
 
     @Column(name = "exerciseName")
     public String exerciseName;
-/*
-    @Column(name = "reps")
-    public String reps;
 
-    @Column(name = "sets")
-    public String sets;*/
+
+
     public UserExerciseDatabase()
     {super();}
 
-    public UserExerciseDatabase(String exerciseName, String day) {
+    public UserExerciseDatabase(String exerciseName, String day, String reps, String sets) {
         super();
       //  this.email = email;
         this.day = day;
         this.exerciseName = exerciseName;
         //this.reps = reps;
-        //this.sets = sets;
+
     }
 }
