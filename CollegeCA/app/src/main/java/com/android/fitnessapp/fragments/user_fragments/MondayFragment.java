@@ -5,15 +5,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.activeandroid.ActiveAndroid;
@@ -22,10 +18,7 @@ import com.android.fitnessapp.R;
 import com.android.fitnessapp.activity.BaseFragmentActivity;
 import com.android.fitnessapp.database.UserExerciseDatabase;
 import com.android.fitnessapp.fragments.BaseFragment;
-import com.android.fitnessapp.utils.ExerciseList;
 import com.android.fitnessapp.views.ExerciseListAdapter;
-import com.android.fitnessapp.views.userviews.UserExerciseListAdapter;
-import com.android.fitnessapp.views.userviews.UserExerciseRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +56,7 @@ public class MondayFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_user_monday, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_monday_user, container, false);
         mUnbinder = ButterKnife.bind(this, rootView);
         ActiveAndroid.initialize(mActivity);
 
@@ -95,7 +88,7 @@ public class MondayFragment extends BaseFragment {
 
 
     //Shows a pop up for the user to add an exercise
-    @OnClick(R.id.add_workout_dialog_button)
+    @OnClick(R.id.add_workout_dialog_button_mon)
     public void showExerciseAddDialog()
     {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mActivity);
@@ -115,6 +108,7 @@ public class MondayFragment extends BaseFragment {
                 userExerciseDatabase.exerciseName = exerciseNameEditText.getText().toString();
                // userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
                 userExerciseDatabase.save();
+                Toast.makeText(mActivity, "Exercise saved", Toast.LENGTH_SHORT).show();
 
             }
         });

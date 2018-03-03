@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+
+    <ListView
+        android:id="@+id/user_exercise_listview_wed"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"/>
 
-        <ListView
-            android:id="@+id/user_exercise_listview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
-        <LinearLayout
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
-
-            <EditText
-                android:id="@+id/user_exercise_edittext_wed"
-                android:layout_width="400dp"
-                android:layout_height="30dp"
-                android:hint="@string/add_exercise_hint"/>
-
-            <Button
-                android:id="@+id/user_exercise_add_button_wed"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_weight=".15"/>
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
-</ScrollView>
+    <Button
+        android:id="@+id/add_workout_dialog_button_wed"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="Add exercise here"
+        android:layout_height="100dp" />
+    <!--<LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <EditText
+            android:id="@+id/user_exercise_edittext_mon"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:hint="@string/add_exercise_hint"/>
+        <Button
+            android:id="@+id/user_exercise_add_button_mon"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/common_google_signin_btn_icon_dark"
+            android:layout_weight=".15"/>
+    </LinearLayout>-->
+</RelativeLayout>
