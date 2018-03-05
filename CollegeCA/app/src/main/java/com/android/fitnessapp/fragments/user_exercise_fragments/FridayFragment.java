@@ -1,4 +1,4 @@
-package com.android.fitnessapp.fragments.user_fragments;
+package com.android.fitnessapp.fragments.user_exercise_fragments;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,10 +32,10 @@ import butterknife.Unbinder;
  * Created by Gerard on 21/02/2018.
  */
 
-public class ThursdayFragment extends BaseFragment {
-    public static ThursdayFragment newInstance(){return new ThursdayFragment();}
+public class FridayFragment extends BaseFragment {
+    public static FridayFragment newInstance(){return new FridayFragment();}
 
-    @BindView(R.id.user_exercise_listview_thur)
+    @BindView(R.id.user_exercise_listview_fri)
     ListView mListView;
 
 
@@ -56,7 +56,7 @@ public class ThursdayFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_thursday_user, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_friday_user, container, false);
         mUnbinder = ButterKnife.bind(this, rootView);
         ActiveAndroid.initialize(mActivity);
 
@@ -69,7 +69,7 @@ public class ThursdayFragment extends BaseFragment {
         //Create a string called day holding the name of the day
         //Create a query for the database to handle then print it out on screen
 
-        String day = "Thursday";
+        String day = "Friday";
         List<UserExerciseDatabase> results = new Select()
                 .from(UserExerciseDatabase.class)
                 .where("day = ?", day )
@@ -88,7 +88,7 @@ public class ThursdayFragment extends BaseFragment {
 
 
     //Shows a pop up for the user to add an exercise
-    @OnClick(R.id.add_workout_dialog_button_thur)
+    @OnClick(R.id.add_workout_dialog_button_fri)
     public void showExerciseAddDialog()
     {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mActivity);
@@ -104,7 +104,7 @@ public class ThursdayFragment extends BaseFragment {
         dialogBuilder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                userExerciseDatabase.day = "Thursday";
+                userExerciseDatabase.day = "Friday";
                 userExerciseDatabase.exerciseName = exerciseNameEditText.getText().toString();
                 // userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
                 userExerciseDatabase.save();

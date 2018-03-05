@@ -1,4 +1,4 @@
-package com.android.fitnessapp.fragments.user_fragments;
+package com.android.fitnessapp.fragments.user_exercise_fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,8 +13,6 @@ import com.android.fitnessapp.activity.BaseFragmentActivity;
 import com.android.fitnessapp.R;
 import com.android.fitnessapp.fragments.BaseFragment;
 import com.android.fitnessapp.views.userviews.UserExerciseViewPageAdapter;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

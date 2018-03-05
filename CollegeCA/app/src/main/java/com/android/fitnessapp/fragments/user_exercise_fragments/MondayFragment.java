@@ -1,4 +1,4 @@
-package com.android.fitnessapp.fragments.user_fragments;
+package com.android.fitnessapp.fragments.user_exercise_fragments;
 
 import android.content.Context;
 import android.content.DialogInterface;

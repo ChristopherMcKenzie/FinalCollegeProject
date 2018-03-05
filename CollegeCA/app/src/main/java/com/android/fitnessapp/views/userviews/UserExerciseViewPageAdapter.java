@@ -4,13 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.android.fitnessapp.fragments.user_fragments.FridayFragment;
-import com.android.fitnessapp.fragments.user_fragments.MondayFragment;
-import com.android.fitnessapp.fragments.user_fragments.SaturdayFragment;
-import com.android.fitnessapp.fragments.user_fragments.SundayFragment;
-import com.android.fitnessapp.fragments.user_fragments.ThursdayFragment;
-import com.android.fitnessapp.fragments.user_fragments.TuesdayFragment;
-import com.android.fitnessapp.fragments.user_fragments.WednesdayFragment;
+import com.android.fitnessapp.fragments.user_exercise_fragments.FridayFragment;
+import com.android.fitnessapp.fragments.user_exercise_fragments.MondayFragment;
+import com.android.fitnessapp.fragments.user_exercise_fragments.SaturdayFragment;
+import com.android.fitnessapp.fragments.user_exercise_fragments.SundayFragment;
+import com.android.fitnessapp.fragments.user_exercise_fragments.ThursdayFragment;
+import com.android.fitnessapp.fragments.user_exercise_fragments.TuesdayFragment;
+import com.android.fitnessapp.fragments.user_exercise_fragments.WednesdayFragment;
 
 /**
  * Created by Gerard on 21/02/2018.

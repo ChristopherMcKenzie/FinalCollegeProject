@@ -4,9 +4,7 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
-/**
- * Created by Gerard on 20/02/2018.
- */
+
 @Table(name = "ExerciseMon")
 public class UserExerciseDatabase extends Model {
   //  @Column(name = "email")
