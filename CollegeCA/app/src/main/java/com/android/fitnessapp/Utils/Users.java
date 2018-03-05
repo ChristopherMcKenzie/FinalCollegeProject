@@ -21,6 +21,8 @@ public class Users{
         this.BMI = BMI;
     }
 
+
+
     public String getWeight() {
         return weight;
     }

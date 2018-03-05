@@ -32,7 +32,7 @@ function testInsert()
   var query = "INSERT INTO `exercises`.`user_workout` (`user_email`, `monday`, `thusday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`) VALUES (?);";
   var testarray = ['EMAIL', 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'];
 
-  sqlCon.query(query,[testarray], function(err, result){
+  sqlCic on.query(query,[testarray], function(err, result){
     if(err) throw err;
     console.log(result.affectedRows);
   });
