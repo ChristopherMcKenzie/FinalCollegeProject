@@ -25,6 +25,20 @@
         android:inputType="textPassword"
         android:hint="Password"/>
 
+    <EditText
+        android:id="@+id/fragment_register_userheight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Enter your height in cm(Optional)"/>
+
+    <EditText
+        android:id="@+id/fragment_register_userweight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Enter your weight in KG(Optional)"/>
+
     <Button
         android:id="@+id/fragment_register_registerButton"
         android:layout_width="match_parent"

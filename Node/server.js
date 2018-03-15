@@ -15,9 +15,9 @@ admin.initializeApp({
 });
 
 var accountRequest = require('./Firebase/account-services');
-var exerciseRequest = require('./DatabaseFolder/database');
+//var exerciseRequest = require('./DatabaseFolder/database');
 
-exerciseRequest.getExercises(io);
+//exerciseRequest.getExercises(io);
 accountRequest.userAccountRequests(io);
 //port number
 //=> arrow function and constructor

@@ -49,8 +49,9 @@ function logUserIn(socket,io){
               var token = {
                 authToken:customToken,
                 email:data.email,
-                userName:snapshot.val().userName
-
+                userName:snapshot.val().userName,
+                height:data.height,
+                weight:data.weight
               }
               console.log('User logged in');
               userRef.child('hasLoggedIn').set(true);
@@ -68,7 +69,9 @@ function logUserIn(socket,io){
                 authToken:error.message,
                 email:'error',
                 photo:'error',
-                displayName:'error'
+                displayName:'error',
+                height:'error',
+                weight:'error'
               }
               io.to(id).emit('token',{token});
             }
@@ -87,7 +90,9 @@ function registerUser(socket,io){
     admin.auth().createUser({
       displayName:data.userName,
       email:data.email,
-      password:data.password
+      password:data.password,
+      height:data.height,
+      weight:data.weight
     })
     .then((userRecord)=>{
       console.log('User was registered successfully');
@@ -101,6 +106,8 @@ function registerUser(socket,io){
       userRef.set({
         userName:data.userName,
         email:data.email,
+        height:data.height,
+        weight:data.weight,
         dateJoined:date,
         hasLoggedIn:false
       });

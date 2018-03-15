@@ -27,7 +27,6 @@ public class HomeActivity extends BaseFragmentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toast.makeText(this, Constants.USER_EMAIL, Toast.LENGTH_SHORT).show();
 
     }
 

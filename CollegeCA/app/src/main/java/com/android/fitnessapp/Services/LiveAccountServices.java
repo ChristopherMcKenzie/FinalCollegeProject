@@ -71,14 +71,14 @@ public class LiveAccountServices {
                             String token = (String) getData.get("authToken");
                             String email = (String) getData.get("email");
                             String userName = (String) getData.get("userName");
-                            //String height = (String) getData.get("height");
-                            //String weight = (String) getData.get("weight");
+                            String height = (String) getData.get("height");
+                            String weight = (String) getData.get("weight");
 
                             userDetails.add(token);
                             userDetails.add(userName);
                             userDetails.add(email);
-                            //userDetails.add(height);
-                          //  userDetails.add(weight);
+                            userDetails.add(height);
+                            userDetails.add(weight);
 
                             return userDetails;
 
@@ -104,8 +104,8 @@ public class LiveAccountServices {
                         String token = strings.get(0);
                         final String userName = strings.get(1);
                         final String email = strings.get(2);
-                        //final String height = strings.get(3);
-                        //final String weight = strings.get(4);
+                        final String weight = strings.get(3);
+                        final String height = strings.get(4);
 
                         if(!email.equals("error"))
                         {
@@ -121,9 +121,9 @@ public class LiveAccountServices {
                                             {
                                                 sharedPreference.edit().putString(Constants.USER_EMAIL, email).apply();
                                                 sharedPreference.edit().putString(Constants.USER_NAME, userName).apply();
-                                                //sharedPreference.edit().putString(Constants.USER_HEIGHT, height).apply();
-                                                //sharedPreference.edit().putString(Constants.USER_WEIGHT, weight).apply();
-
+                                                sharedPreference.edit().putString(Constants.USER_WEIGHT, weight).apply();
+                                                sharedPreference.edit().putString(Constants.USER_HEIGHT, height).apply();
+                                                Toast.makeText(baseContext, "Logged in", Toast.LENGTH_LONG).show();
 
                                                 Intent i = new Intent(baseContext, HomeActivity.class);
                                                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -228,13 +228,15 @@ public class LiveAccountServices {
     }
 
 
-    public Subscription sendRegistrationInfo(final EditText userName, final EditText email, final EditText password, final Socket socket)
+    public Subscription sendRegistrationInfo(final EditText userName, final EditText email, final EditText password, final EditText weight, final EditText height, final Socket socket)
     {
         List<String> userDetails = new ArrayList<>();
 
         userDetails.add(userName.getText().toString());
         userDetails.add(email.getText().toString());
         userDetails.add(password.getText().toString());
+        userDetails.add(weight.getText().toString());
+        userDetails.add(height.getText().toString());
 
         rx.Observable<List<String>> userDetailsObservable = rx.Observable.just(userDetails);
         return userDetailsObservable
@@ -246,6 +248,8 @@ public class LiveAccountServices {
                         String userName = strings.get(0);
                         String userEmail = strings.get(1);
                         String userPassword = strings.get(2);
+                        String weight = strings.get(3);
+                        String height = strings.get(4);
                         if(userName.isEmpty())
                         {
                             return USER_ERROR_EMPTY_USERNAME;
@@ -268,6 +272,8 @@ public class LiveAccountServices {
                                 sendData.put("email", userEmail);
                                 sendData.put("userName", userName);
                                 sendData.put("password", userPassword);
+                                sendData.put("weight", weight);
+                                sendData.put("height", height);
                                 socket.emit("userData", sendData);
                                 return SERVER_SUCCESS;
                             } catch (JSONException e) {

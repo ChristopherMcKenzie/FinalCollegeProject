@@ -3,6 +3,7 @@ package com.android.fitnessapp.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,6 +43,12 @@ public class RegisterFragment extends BaseFragment {
     EditText mUsernameText;
     @BindView(R.id.fragment_register_password)
     EditText mUserPassword;
+    @io.reactivex.annotations.Nullable
+    @BindView(R.id.fragment_register_userweight)
+    EditText mUserWeight;
+    @io.reactivex.annotations.Nullable
+    @BindView(R.id.fragment_register_userheight)
+    EditText mUserHeight;
 
     @BindView(R.id.fragment_register_registerButton)
     Button mRegiserButton;
@@ -52,7 +59,6 @@ public class RegisterFragment extends BaseFragment {
     private Socket mSocket;
 
     private BaseFragmentActivity mActivity;
-
 
     private LiveAccountServices mLiveAccountServices;
     public static RegisterFragment newInstance()
@@ -77,8 +83,9 @@ public class RegisterFragment extends BaseFragment {
     @OnClick(R.id.fragment_register_registerButton)
     public void setmRegiserButton()
     {
+
         compositeSubscription.add(mLiveAccountServices.sendRegistrationInfo(
-                mUsernameText, mEmailText, mUserPassword, mSocket
+                mUsernameText, mEmailText, mUserPassword, mUserWeight, mUserHeight, mSocket
         ));
     }
 
