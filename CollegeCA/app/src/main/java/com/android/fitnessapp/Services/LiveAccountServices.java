@@ -272,8 +272,8 @@ public class LiveAccountServices {
                                 sendData.put("email", userEmail);
                                 sendData.put("userName", userName);
                                 sendData.put("password", userPassword);
-                                sendData.put("weight", weight);
                                 sendData.put("height", height);
+                                sendData.put("weight", weight);
                                 socket.emit("userData", sendData);
                                 return SERVER_SUCCESS;
                             } catch (JSONException e) {

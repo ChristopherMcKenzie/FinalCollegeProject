@@ -20,7 +20,6 @@ import java.util.List;
  */
 
 public class ExerciseListAdapter extends ArrayAdapter<UserExerciseDatabase> {
-    private DatabaseReference mDatabaseRef;
 
     private static class ViewHolder
     {

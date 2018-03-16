@@ -2,6 +2,7 @@ package com.android.fitnessapp.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -63,6 +64,7 @@ public class LoginFragment extends BaseFragment {
             Log.i(LoginFragment.class.getSimpleName(), e.getMessage());
             Toast.makeText(getActivity(), "Cannot connect", Toast.LENGTH_SHORT).show();
         }
+
 
         mLCA = LiveAccountServices.getInstance();
         mSocket.on("token", tokenListener());

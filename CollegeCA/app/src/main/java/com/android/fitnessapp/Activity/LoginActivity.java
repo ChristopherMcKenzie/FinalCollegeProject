@@ -1,5 +1,6 @@
 package com.android.fitnessapp.activity;
 
+import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 
 import com.android.fitnessapp.fragments.LoginFragment;
@@ -12,15 +13,7 @@ public class LoginActivity extends BaseFragmentActivity{
     Fragment createFragment() {
         return LoginFragment.newInstances();
     }
-
-
-
-
-
-
 }
-
-
 
 /*
 private Socket mSocket;
