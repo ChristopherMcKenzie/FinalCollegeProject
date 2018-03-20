@@ -49,10 +49,10 @@ function logUserIn(socket,io){
               var token = {
                 authToken:customToken,
                 email:data.email,
-                userName:snapshot.val().userName,
-                height:data.height,
-                weight:data.weight
+                userName:snapshot.val().userName
               }
+
+
               console.log('User logged in');
               userRef.child('hasLoggedIn').set(true);
 

@@ -74,6 +74,8 @@ public class MondayFragment extends BaseFragment {
                 .from(UserExerciseDatabase.class)
                 .where("day = ?", day )
                 .execute();
+
+
         adapter.addAll(results);
 
         adapter.notifyDataSetChanged();

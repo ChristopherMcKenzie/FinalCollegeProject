@@ -53,6 +53,7 @@ public class UserExerciseListAdapter extends ArrayAdapter<UserExerciseDatabase> 
         }
         viewHolder.name.setText(exerciseUserList.exerciseName);
 
+
         return convertView;
     }
 }

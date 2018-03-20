@@ -17,7 +17,6 @@ public class UserExerciseDatabase extends Model {
     public String exerciseName;
 
 
-
     public UserExerciseDatabase()
     {super();}
 

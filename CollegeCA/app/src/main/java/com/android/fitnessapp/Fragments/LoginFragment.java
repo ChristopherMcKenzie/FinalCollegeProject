@@ -88,6 +88,7 @@ public class LoginFragment extends BaseFragment {
         return new Emitter.Listener() {
             @Override
             public void call(Object... args) {
+
                 JSONObject jsonObject = (JSONObject) args[0];
 
                 compositeSubscription.add(mLCA.getAuthToken(jsonObject, mActivity, mSharedPreferences));

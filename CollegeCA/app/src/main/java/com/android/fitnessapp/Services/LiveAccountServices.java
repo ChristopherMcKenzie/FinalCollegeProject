@@ -71,14 +71,14 @@ public class LiveAccountServices {
                             String token = (String) getData.get("authToken");
                             String email = (String) getData.get("email");
                             String userName = (String) getData.get("userName");
-                            String height = (String) getData.get("height");
-                            String weight = (String) getData.get("weight");
+                          //  String height = (String) getData.get("height");
+                            //String weight = (String) getData.get("weight");
 
                             userDetails.add(token);
                             userDetails.add(userName);
                             userDetails.add(email);
-                            userDetails.add(height);
-                            userDetails.add(weight);
+                            //userDetails.add(height);
+                            //userDetails.add(weight);
 
                             return userDetails;
 
@@ -104,8 +104,8 @@ public class LiveAccountServices {
                         String token = strings.get(0);
                         final String userName = strings.get(1);
                         final String email = strings.get(2);
-                        final String weight = strings.get(3);
-                        final String height = strings.get(4);
+                     //   final String weight = strings.get(3);
+                      //  final String height = strings.get(4);
 
                         if(!email.equals("error"))
                         {
@@ -121,8 +121,8 @@ public class LiveAccountServices {
                                             {
                                                 sharedPreference.edit().putString(Constants.USER_EMAIL, email).apply();
                                                 sharedPreference.edit().putString(Constants.USER_NAME, userName).apply();
-                                                sharedPreference.edit().putString(Constants.USER_WEIGHT, weight).apply();
-                                                sharedPreference.edit().putString(Constants.USER_HEIGHT, height).apply();
+                              //                  sharedPreference.edit().putString(Constants.USER_WEIGHT, weight).apply();
+                                //                sharedPreference.edit().putString(Constants.USER_HEIGHT, height).apply();
                                                 Toast.makeText(baseContext, "Logged in", Toast.LENGTH_LONG).show();
 
                                                 Intent i = new Intent(baseContext, HomeActivity.class);
@@ -139,7 +139,7 @@ public class LiveAccountServices {
 
 
     public Subscription sendLogInInfo(final EditText email, final EditText password, final Socket socket
-    , final BaseFragmentActivity baseContext)
+            , final BaseFragmentActivity baseContext)
     {
         List<String> userDetails = new ArrayList<>();
 
@@ -322,18 +322,15 @@ public class LiveAccountServices {
                                              final EditText height, final EditText weight, final Socket socket)
     {
         List<String> userDetails = new ArrayList<>();
-
         userDetails.add(userName.getText().toString());
         userDetails.add(email.getText().toString());
         userDetails.add(password.getText().toString());
         userDetails.add(height.getText().toString());
         userDetails.add(weight.getText().toString());
-
         rx.Observable<List<String>> userDetailsObservable = rx.Observable.just(userDetails);
         return userDetailsObservable
                 .subscribeOn(Schedulers.io())
                 .map(new Func1<List<String>, Integer>(){
-
                     @Override
                     public Integer call(List<String> strings) {
                         String userName = strings.get(0);
@@ -381,20 +378,15 @@ public class LiveAccountServices {
                                 return SERVER_FAIL;
                             }
                         }
-
                     }
                 }).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onCompleted() {
-
                     }
-
                     @Override
                     public void onError(Throwable e) {
-
                     }
-
                     @Override
                     public void onNext(Integer integer) {
                         if(integer.equals(USER_ERROR_EMPTY_EMAIL))
@@ -415,7 +407,6 @@ public class LiveAccountServices {
                         }
                     }
                 });
-
     }*/
 
 
@@ -465,5 +456,4 @@ public class LiveAccountServices {
                     }
                 });
     }
-    }
-
+}

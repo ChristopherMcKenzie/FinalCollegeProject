@@ -53,15 +53,6 @@ public class WorkoutPostFragment extends BaseFragment {
     }
 
 
-/*
-    Use a string array <item> have presets, let the user change the presets
- */
-    public void editWorkoutMonday(View v)
-    {
-    //    String mondayWorkout = mEditTextMonday.toString();
-  //      testTextView.setText(mondayWorkout);
-//
-    }
 
 
 
