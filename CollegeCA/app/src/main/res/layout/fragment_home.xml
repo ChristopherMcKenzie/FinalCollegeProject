@@ -27,7 +27,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp">
         <ImageView
             android:id="@+id/meal_home_button"
             android:layout_width="wrap_content"
@@ -35,5 +36,22 @@
             android:layout_height="wrap_content"
             android:onClick="startMealActivity"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="25dp">
+
+            <ImageView
+            android:id="@+id/user_profile_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/workout_banner"
+            android:onClick="startProfileActivity"/>
+
+    </LinearLayout>
+
+
+
     </LinearLayout>
 </ScrollView>

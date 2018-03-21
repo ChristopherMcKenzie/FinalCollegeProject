@@ -46,6 +46,13 @@ public class HomeActivity extends BaseFragmentActivity {
         startActivity(i);
     }
 
+    public void startProfileActivity(View v)
+    {
+        Intent i  = new Intent(getApplicationContext(), UserProfileActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+    }
+
 
 
 }

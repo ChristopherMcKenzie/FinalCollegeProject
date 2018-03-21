@@ -71,14 +71,14 @@ public class LiveAccountServices {
                             String token = (String) getData.get("authToken");
                             String email = (String) getData.get("email");
                             String userName = (String) getData.get("userName");
-                          //  String height = (String) getData.get("height");
-                            //String weight = (String) getData.get("weight");
+                            String height = (String) getData.get("weight");
+                            String weight = (String) getData.get("height");
 
                             userDetails.add(token);
                             userDetails.add(userName);
                             userDetails.add(email);
-                            //userDetails.add(height);
-                            //userDetails.add(weight);
+                            userDetails.add(weight);
+                            userDetails.add(height);
 
                             return userDetails;
 
@@ -104,8 +104,8 @@ public class LiveAccountServices {
                         String token = strings.get(0);
                         final String userName = strings.get(1);
                         final String email = strings.get(2);
-                     //   final String weight = strings.get(3);
-                      //  final String height = strings.get(4);
+                        final String weight = strings.get(3);
+                        final String height = strings.get(4);
 
                         if(!email.equals("error"))
                         {
@@ -121,8 +121,8 @@ public class LiveAccountServices {
                                             {
                                                 sharedPreference.edit().putString(Constants.USER_EMAIL, email).apply();
                                                 sharedPreference.edit().putString(Constants.USER_NAME, userName).apply();
-                              //                  sharedPreference.edit().putString(Constants.USER_WEIGHT, weight).apply();
-                                //                sharedPreference.edit().putString(Constants.USER_HEIGHT, height).apply();
+                                                sharedPreference.edit().putString(Constants.USER_WEIGHT, weight).apply();
+                                                sharedPreference.edit().putString(Constants.USER_HEIGHT, height).apply();
                                                 Toast.makeText(baseContext, "Logged in", Toast.LENGTH_LONG).show();
 
                                                 Intent i = new Intent(baseContext, HomeActivity.class);

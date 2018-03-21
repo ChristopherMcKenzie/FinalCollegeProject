@@ -10,18 +10,92 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         />
+    <LinearLayout
+        android:layout_marginTop="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight: "
+            android:textSize="20sp"/>
+        <EditText
+            android:id="@+id/user_profile_weight"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:hint="Weight"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KG"
+            android:textSize="20sp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save weight"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            android:onClick="saveWeight"/>
 
-    <TextView
-        android:id="@+id/user_profile_weight"
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height: "
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/user_profile_height"
+            android:layout_width="80dp"
+            android:hint="Height"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CM"
+            android:textSize="20sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save height"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            android:onClick="saveHeight"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"/>
-
-    <TextView
-        android:id="@+id/user_profile_height"
+        android:layout_gravity="center_vertical">
+        <TextView
+            android:id="@+id/user_profile_bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            />
+        </LinearLayout>
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"/>
-
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginTop="30dp"
+            android:id="@+id/user_calc_bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="getUserBMI"
+            android:gravity="center_vertical"
+            android:text="Click here to find your BMI"
+            android:textSize="14sp"/>
+    </LinearLayout>
 
 </LinearLayout>
