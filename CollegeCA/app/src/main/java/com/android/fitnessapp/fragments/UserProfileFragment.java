@@ -31,10 +31,6 @@ public class UserProfileFragment extends BaseFragment {
 
     //BMI formula (weight(KG)/height(M))/height/(M)
 
-    public static final String USEREMAIL = "useremail";
-    public static final String USERHEIGHT = "userheight";
-    public static final String USERWEIGHT = "userweight";
-
     private Unbinder mUnbinder;
     private BaseFragmentActivity mActivity;
     public SharedPreferences mSharedPreferences;

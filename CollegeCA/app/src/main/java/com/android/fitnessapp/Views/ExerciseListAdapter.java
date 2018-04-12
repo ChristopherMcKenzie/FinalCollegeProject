@@ -13,6 +13,8 @@ import com.android.fitnessapp.R;
 import com.android.fitnessapp.database.UserExerciseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -24,7 +26,8 @@ public class ExerciseListAdapter extends ArrayAdapter<UserExerciseDatabase> {
     private static class ViewHolder
     {
         TextView title;
-        TextView desc;
+        TextView reps;
+        TextView sets;
     }
 
     public ExerciseListAdapter(@NonNull Activity context, @NonNull List<UserExerciseDatabase> objects) {
@@ -47,8 +50,9 @@ public class ExerciseListAdapter extends ArrayAdapter<UserExerciseDatabase> {
 
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.exercise_list_view, parent, false);
-            viewHolder.desc = (TextView) convertView.findViewById(R.id.list_view_exercise_text);
-            viewHolder.title = (TextView) convertView.findViewById(R.id.list_view_muscle);
+            viewHolder.reps = convertView.findViewById(R.id.list_view_exercise_reps);
+            viewHolder.title = convertView.findViewById(R.id.list_view_muscle);
+            viewHolder.sets = convertView.findViewById(R.id.list_view_exercise_sets);
             //Cache it here
             convertView.setTag(viewHolder);
 //        String userEmail = sharedPreferences.getString(Constants.USER_EMAIL, "");
@@ -62,7 +66,9 @@ public class ExerciseListAdapter extends ArrayAdapter<UserExerciseDatabase> {
 
 
         //viewHolder.desc.setText(exerciseList.email);
-        viewHolder.title.setText(exerciseList.exerciseName);
+        viewHolder.title.setText(exerciseList.name);
+        viewHolder.reps.setText(exerciseList.reps);
+        viewHolder.sets.setText(exerciseList.sets);
 
         return convertView;
     }

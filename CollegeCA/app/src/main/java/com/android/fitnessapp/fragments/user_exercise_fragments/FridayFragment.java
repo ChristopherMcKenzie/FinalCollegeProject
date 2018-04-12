@@ -105,10 +105,23 @@ public class FridayFragment extends BaseFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 userExerciseDatabase.day = "Friday";
-                userExerciseDatabase.exerciseName = exerciseNameEditText.getText().toString();
-                // userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
+                userExerciseDatabase.name = exerciseNameEditText.getText().toString();
+                userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
+                userExerciseDatabase.sets = exerciseSetsEditText.getText().toString();
                 userExerciseDatabase.save();
+                adapter.clear();
                 Toast.makeText(mActivity, "Exercise saved", Toast.LENGTH_SHORT).show();
+                String day = "Friday";
+                List<UserExerciseDatabase> results = new Select()
+                        .from(UserExerciseDatabase.class)
+                        .where("day = ?", day )
+                        .execute();
+                adapter.addAll(results);
+
+                adapter.notifyDataSetChanged();
+
+                mListView.setAdapter(adapter);
+
 
             }
         });
@@ -128,7 +141,7 @@ public class FridayFragment extends BaseFragment {
     public void saveExercise(EditText userInput)
     {
         String exercise = userInput.getText().toString();
-        userExerciseDatabase.exerciseName = exercise;
+       // userExerciseDatabase.exerciseName = exercise;
         userExerciseDatabase.day = "Monday";
 
         userExerciseDatabase.save();

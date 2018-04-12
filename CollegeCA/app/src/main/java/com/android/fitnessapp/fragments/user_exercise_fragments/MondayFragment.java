@@ -13,12 +13,17 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.activeandroid.ActiveAndroid;
+import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 import com.android.fitnessapp.R;
 import com.android.fitnessapp.activity.BaseFragmentActivity;
 import com.android.fitnessapp.database.UserExerciseDatabase;
 import com.android.fitnessapp.fragments.BaseFragment;
+import com.android.fitnessapp.utils.Constants;
 import com.android.fitnessapp.views.ExerciseListAdapter;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,10 +112,23 @@ public class MondayFragment extends BaseFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 userExerciseDatabase.day = "Monday";
-                userExerciseDatabase.exerciseName = exerciseNameEditText.getText().toString();
-               // userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
+                userExerciseDatabase.name = exerciseNameEditText.getText().toString();
+                userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
+                userExerciseDatabase.sets = exerciseSetsEditText.getText().toString();
                 userExerciseDatabase.save();
                 Toast.makeText(mActivity, "Exercise saved", Toast.LENGTH_SHORT).show();
+                adapter.clear();
+                String day = "Monday";
+                List<UserExerciseDatabase> results = new Select()
+                        .from(UserExerciseDatabase.class)
+                        .where("day = ?", day )
+                        .execute();
+                adapter.addAll(results);
+
+                adapter.notifyDataSetChanged();
+
+                mListView.setAdapter(adapter);
+
 
             }
         });
@@ -130,7 +148,7 @@ public class MondayFragment extends BaseFragment {
     public void saveExercise(EditText userInput)
     {
         String exercise = userInput.getText().toString();
-        userExerciseDatabase.exerciseName = exercise;
+        userExerciseDatabase.name = exercise;
         userExerciseDatabase.day = "Monday";
 
         userExerciseDatabase.save();

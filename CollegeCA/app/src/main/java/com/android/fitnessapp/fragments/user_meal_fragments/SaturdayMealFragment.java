@@ -18,8 +18,8 @@ import com.android.fitnessapp.R;
 import com.android.fitnessapp.activity.BaseFragmentActivity;
 import com.android.fitnessapp.database.UserMealDatabase;
 import com.android.fitnessapp.fragments.BaseFragment;
-import com.android.fitnessapp.views.userviews.UserExerciseListAdapter;
-import com.android.fitnessapp.views.userviews.UserMealListAdapter;
+import com.android.fitnessapp.views.MealListAdapter;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class SaturdayMealFragment extends BaseFragment {
     public UserMealDatabase userMealDatabase;
     private BaseFragmentActivity mActivity;
 
-    private UserMealListAdapter adapter;
+    private MealListAdapter adapter;
 
     @Nullable
     @Override
@@ -56,7 +56,7 @@ public class SaturdayMealFragment extends BaseFragment {
 
         ArrayList<UserMealDatabase> items = new ArrayList();
 
-        adapter = new UserMealListAdapter(mActivity, items);
+        adapter = new MealListAdapter(mActivity, items);
 
 
         String day = "Saturday";
@@ -94,14 +94,25 @@ public class SaturdayMealFragment extends BaseFragment {
         dialogBuilder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                userMealDatabase.day = "Saturday";
+                String day = "Saturday";
+                userMealDatabase.day = day;
                 userMealDatabase.breakfast = mealBreakfast.getText().toString();
                 userMealDatabase.lunch = mealLunch.getText().toString();
                 userMealDatabase.dinner = mealDinner.getText().toString();
                 userMealDatabase.supper = mealSupper.getText().toString();
                 userMealDatabase.save();
                 Toast.makeText(mActivity, "Meal saved", Toast.LENGTH_SHORT).show();
+                List<UserMealDatabase> result = new Select()
+                        .from(UserMealDatabase.class)
+                        .where("day = ?", day)
+                        .execute();
+                adapter.clear();
 
+                adapter.addAll(result);
+
+                adapter.notifyDataSetChanged();
+
+                mListView.setAdapter(adapter);
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

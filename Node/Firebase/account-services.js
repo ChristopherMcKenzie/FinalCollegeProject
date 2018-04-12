@@ -24,7 +24,12 @@ function detectDisconnection(socket, io)
   });
 }
 
+/*
+function sendUpdatedWeightHeight(socket, io)
+{
 
+}
+*/
 function logUserIn(socket,io){
   socket.on('userInfo',(data)=>{
     admin.auth().getUserByEmail(data.email)
@@ -50,7 +55,7 @@ function logUserIn(socket,io){
                 authToken:customToken,
                 email:data.email,
                 userName:snapshot.val().userName,
-                weight: snapshot.val().weight,
+                weight:snapshot.val().weight,
                 height:snapshot.val().height
 
               }

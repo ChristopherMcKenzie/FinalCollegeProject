@@ -19,7 +19,7 @@ import com.android.fitnessapp.R;
 import com.android.fitnessapp.activity.BaseFragmentActivity;
 import com.android.fitnessapp.database.UserMealDatabase;
 import com.android.fitnessapp.fragments.BaseFragment;
-import com.android.fitnessapp.views.userviews.UserMealListAdapter;
+import com.android.fitnessapp.views.MealListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +45,7 @@ public class TuesdayMealFragment extends BaseFragment {
     public UserMealDatabase userMealDatabase;
     private BaseFragmentActivity mActivity;
 
-    private UserMealListAdapter adapter;
+    private MealListAdapter adapter;
 
     @Nullable
     @Override
@@ -58,7 +58,7 @@ public class TuesdayMealFragment extends BaseFragment {
 
         ArrayList<UserMealDatabase> items = new ArrayList();
 
-        adapter = new UserMealListAdapter(mActivity, items);
+        adapter = new MealListAdapter(mActivity, items);
 
 
         String day = "Tuesday";
@@ -82,6 +82,7 @@ public class TuesdayMealFragment extends BaseFragment {
     @OnClick(R.id.add_meal_dialog_button_tues)
     public void showExerciseAddDialog()
     {
+
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mActivity);
         LayoutInflater inflater = mActivity.getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.custom_meal_dialog, null);
@@ -97,13 +98,25 @@ public class TuesdayMealFragment extends BaseFragment {
         dialogBuilder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                userMealDatabase.day = "Tuesday";
+                String day = "Tuesday";
+                userMealDatabase.day = day;
                 userMealDatabase.breakfast = mealBreakfast.getText().toString();
                 userMealDatabase.lunch = mealLunch.getText().toString();
                 userMealDatabase.dinner = mealDinner.getText().toString();
                 userMealDatabase.supper = mealSupper.getText().toString();
                 userMealDatabase.save();
                 Toast.makeText(mActivity, "Meal saved", Toast.LENGTH_SHORT).show();
+                adapter.clear();
+                List<UserMealDatabase> result = new Select()
+                        .from(UserMealDatabase.class)
+                        .where("day = ?", day)
+                        .execute();
+                adapter.addAll(result);
+
+                adapter.notifyDataSetChanged();
+                mListView.setAdapter(adapter);
+
+
 
             }
         });

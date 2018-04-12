@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.android.fitnessapp.R;
 import com.android.fitnessapp.activity.BaseFragmentActivity;
 import com.android.fitnessapp.fragments.BaseFragment;
-import com.android.fitnessapp.views.userviews.UserMealViewPageAdapter;
+import com.android.fitnessapp.views.UserMealViewPageAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -20,6 +20,7 @@ import com.android.fitnessapp.database.UserExerciseDatabase;
 import com.android.fitnessapp.fragments.BaseFragment;
 import com.android.fitnessapp.views.ExerciseListAdapter;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,10 +105,23 @@ public class TuesdayFragment extends BaseFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 userExerciseDatabase.day = "Tuesday";
-                userExerciseDatabase.exerciseName = exerciseNameEditText.getText().toString();
-                // userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
+                userExerciseDatabase.name = exerciseNameEditText.getText().toString();
+                userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
+                userExerciseDatabase.sets = exerciseSetsEditText.getText().toString();
                 userExerciseDatabase.save();
+                adapter.clear();
                 Toast.makeText(mActivity, "Exercise saved", Toast.LENGTH_SHORT).show();
+                String day = "Tuesday";
+                List<UserExerciseDatabase> results = new Select()
+                        .from(UserExerciseDatabase.class)
+                        .where("day = ?", day )
+                        .execute();
+                adapter.addAll(results);
+
+                adapter.notifyDataSetChanged();
+
+                mListView.setAdapter(adapter);
+
 
             }
         });
@@ -123,25 +137,6 @@ public class TuesdayFragment extends BaseFragment {
     }
 
 
-
-    public void saveExercise(EditText userInput)
-    {
-        String exercise = userInput.getText().toString();
-        userExerciseDatabase.exerciseName = exercise;
-        userExerciseDatabase.day = "Tuesday";
-
-        userExerciseDatabase.save();
-        try
-        {
-            Thread.sleep(1000);
-            adapter.notifyDataSetChanged();
-        }
-        catch(InterruptedException ex)
-        {
-            ex.getMessage();
-        }
-
-    }
 
     @Override
     public void onDestroyView() {

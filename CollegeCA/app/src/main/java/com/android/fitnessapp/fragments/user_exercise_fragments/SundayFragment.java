@@ -104,11 +104,22 @@ public class SundayFragment extends BaseFragment {
         dialogBuilder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                userExerciseDatabase.day = "Sunday";
-                userExerciseDatabase.exerciseName = exerciseNameEditText.getText().toString();
-                // userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
+                userExerciseDatabase.name = exerciseNameEditText.getText().toString();
+                userExerciseDatabase.reps = exerciseRepEditText.getText().toString();
+                userExerciseDatabase.sets = exerciseSetsEditText.getText().toString();
                 userExerciseDatabase.save();
+                adapter.clear();
                 Toast.makeText(mActivity, "Exercise saved", Toast.LENGTH_SHORT).show();
+                String day = "Sunday";
+                List<UserExerciseDatabase> results = new Select()
+                        .from(UserExerciseDatabase.class)
+                        .where("day = ?", day )
+                        .execute();
+                adapter.addAll(results);
+
+                adapter.notifyDataSetChanged();
+
+                mListView.setAdapter(adapter);
 
             }
         });
@@ -123,26 +134,6 @@ public class SundayFragment extends BaseFragment {
         dialog.show();
     }
 
-
-
-    public void saveExercise(EditText userInput)
-    {
-        String exercise = userInput.getText().toString();
-        userExerciseDatabase.exerciseName = exercise;
-        userExerciseDatabase.day = "Sunday";
-
-        userExerciseDatabase.save();
-        try
-        {
-            Thread.sleep(1000);
-            adapter.notifyDataSetChanged();
-        }
-        catch(InterruptedException ex)
-        {
-            ex.getMessage();
-        }
-
-    }
 
     @Override
     public void onDestroyView() {
